@@ -5,24 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}?{% now 'U' %}">
 </head>
 <body>
     <header>
-        <h1>Biblioteca</h1>
+        <div class="header-left">
+            <img src="{% static 'images/icon1.png' %}" alt="Menu">
+            <img src="{% static 'images/icon2.png' %}" alt="Perfil">
+            <img src="{% static 'images/icon3.png' %}" alt="Prestamos">
+            <img src="{% static 'images/icon4.png' %}" alt="Cerrar sesion">
+            <img src="{% static 'images/icon5.png' %}" alt="Cerrar">
+        </div>
+        <div class="header-center">
+            <h1>Inicio</h1>
+        </div>
     </header>
     <main>
-        <section class="catalogo">
-            <article class="libro">
-                <h2>Libro 1</h2>
-                <p>Descripción del Libro 1</p>
-            </article>
-            <article class="libro">
-                <h2>Libro 2</h2>
-                <p>Descripción del Libro 2</p>
-            </article>
-            <!-- Puedes agregar más artículos de libros aquí -->
+        <section class="side-section">
+            <!-- Contenido de los botones -->
+            <button>Ingeniería en Sistemas Computacionales</button>
+            <button>Ingeniería en Animación Digital</button>
+            <button>Licenciatura en Gastronomía</button>
+            <button>Licenciatura en Administración</button>
+            <button>Ingeniería Química</button>
+            <button>Ingeniería en Mecatrónica</button>
+            <button>Ingeniería Industrial</button>
+        </section>
+        <section class="main-section">
+            <div class="centered-text">
+                <p>
+                    No hay entretenimiento tan 
+                    barato como la lectura, ni 
+                    placer tan duradero.
+                    - Mary Montagu
+                </p>
+            </div>
         </section>
     </main>
+    <footer>
+        <div class="footer-section">
+            <h2></h2>
+            <img src="{% static 'images/footer-icon1.png' %}" alt="Facebook">
+            <img src="{% static 'images/footer-icon2.png' %}" alt="Twitter">
+            <img src="{% static 'images/footer-icon3.png' %}" alt="Instagram">
+        </div>
+        <div class="footer-section">
+            <h2></h2>
+            <img src="{% static 'images/footer-icon4.png' %}" alt="Logo">
+        </div>
+        <div class="footer-section">
+            <h2></h2>
+            <img src="{% static 'images/footer-icon5.png' %}" alt="ChatBot">
+        </div>
+    </footer>
 </body>
 </html>
