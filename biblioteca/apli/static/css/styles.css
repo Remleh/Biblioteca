@@ -6,19 +6,21 @@ body {
     margin: 0;
     padding: 0;
     background-color: #f4f0cb; /* Color de fondo de la página */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header {
+header, footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #B7C68B; /* Color del encabezado */
+    background-color: #B7C68B; /* Color del encabezado y pie de página */
     color: #000;
     padding: 1rem;
-    position: relative; /* Para permitir centrar el texto correctamente */
 }
 
-.header-left {
+.header-left, .header-center {
     display: flex;
     align-items: center;
 }
@@ -29,10 +31,9 @@ header {
 }
 
 .header-center {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
 }
 
 .header-center h1 {
@@ -40,8 +41,8 @@ header {
 }
 
 main {
+    flex: 1;
     display: flex;
-    height: calc(100vh - 200px); /* Ajusta esto según la altura del encabezado y pie de página */
 }
 
 .side-section {
@@ -65,7 +66,7 @@ main {
 }
 
 .side-section button:hover {
-    background-color: #f4f0cb;
+    background-color: #eaeaea;
 }
 
 .main-section {
@@ -78,14 +79,6 @@ main {
 
 .centered-text {
     text-align: center;
-}
-
-footer {
-    background-color: #B7C68B; /* Color del pie de página */
-    color: #000;
-    display: flex;
-    justify-content: space-between;
-    padding: 1rem;
 }
 
 .footer-section {
