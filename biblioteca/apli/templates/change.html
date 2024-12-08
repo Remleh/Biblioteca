@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambio de Contraseña - Biblioteca</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/change.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <header>
+        <div class="header-center">
+            <h1>Cambio de Contraseña</h1>
+        </div>
+    </header>
+    <main>
+        <section class="cambio-form">
+            <h2>Actualiza tu contraseña</h2>
+            {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            <form method="POST" action="{% url 'cambio' %}">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group btn-container">
+                    <button type="submit">Cambiar Contraseña</button>
+                    <a href="{% url 'perfil' %}" class="btn-cancel">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-section logo-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/libros.png' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="footer-section"></div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cerrar Sesión - Biblioteca</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/logout.css' %}?{% now 'U' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <div class="header-center">
+            <h1>Cerrar Sesión</h1>
+        </div>
+    </header>
+    <main>
+        <section class="logout-section">
+            <h2>¿Deseas cerrar sesión?</h2>
+            <button id="logout-btn" class="logout-btn">Cerrar Sesión</button>
+            <a href="{% url 'home' %}" class="btn-cancel">Cancelar</a>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <a href="#">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="#">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="#">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('logout-btn').addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Estás a punto de cerrar sesión!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{% url 'logout' %}";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

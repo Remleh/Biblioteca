@@ -1,0 +1,146 @@
+/* styles_solicitar.css */
+
+/* Estilos generales para la página de solicitud de préstamo */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F0CB; /* Color de fondo de la página */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evitar barras de desplazamiento horizontales */
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B7C68B; /* Color del encabezado */
+    color: #000;
+    padding: 1rem;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-center h1 {
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F0CB; /* Color de fondo del main */
+    overflow: hidden; /* Evitar barras de desplazamiento en el main */
+}
+
+.loan-details {
+    background: #F4F0CB; /* Color de fondo de la sección */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    margin: 20px;
+}
+
+.loan-details h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.loan-details p {
+    text-align: center;
+}
+
+.loan-details .form-group {
+    margin-bottom: 15px;
+}
+
+.loan-details label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.loan-details input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.loan-details button, .loan-details .btn-cancel {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 48%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+.loan-details button {
+    background-color: #685642; /* Color del botón Confirmar Préstamo */
+}
+
+.loan-details button:hover {
+    background-color: #4f4336;
+}
+
+.loan-details .btn-cancel {
+    background-color: #808080; /* Color del botón Cancelar */
+}
+
+.loan-details .btn-cancel:hover {
+    background-color: #606060;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Asegurar que los elementos del pie de página estén bien distribuidos */
+    align-items: center;
+    background-color: #B7C68B; /* Color del pie de página */
+    color: #000;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-around; /* Distribuir elementos en el pie de página */
+    align-items: center;
+}
+
+.footer-section img {
+    height: 30px;
+    margin-right: 5px;
+    flex-shrink: 0; /* Evitar que los iconos se encojan */
+}
+
+.logo-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}

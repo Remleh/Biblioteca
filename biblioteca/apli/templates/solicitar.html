@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Préstamo - Biblioteca</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/solicitar.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <header>
+        <div class="header-center">
+            <h1>Solicitar Préstamo</h1>
+        </div>
+    </header>
+    <main>
+        <section class="loan-details">
+            <h2>{{ libro.titulo }}</h2>
+            <p>{{ libro.descripcion }}</p>
+            <form method="POST" action="{% url 'solicitar' libro.id %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="fecha_devolucion">Fecha de Devolución</label>
+                    {{ form.fecha_devolucion }}
+                </div>
+                <div class="btn-container">
+                    <button type="submit">Confirmar Préstamo</button>
+                    <a href="{% url 'books_by_carrera' libro.carrera.id %}" class="btn-cancel">Cancelar</a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-section logo-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/libros.png' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="footer-section"></div>
+    </footer>
+</body>
+</html>

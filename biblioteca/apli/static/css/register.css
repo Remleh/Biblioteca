@@ -1,0 +1,135 @@
+/* styles_registro.css */
+
+/* Estilos generales para la página de registro */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F0CB; /* Color de fondo de la página */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evitar barras de desplazamiento horizontales */
+}
+
+header, footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #B7C68B; /* Color del encabezado y pie de página */
+    color: #000;
+    padding: 1rem;
+}
+
+.header-left, .header-center {
+    display: flex;
+    align-items: center;
+}
+
+.header-left img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.header-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.header-center h1 {
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F0CB; /* Color de fondo del main */
+    overflow: hidden; /* Evitar barras de desplazamiento en el main */
+}
+
+.registro-form {
+    background: #F4F0CB; /* Color de fondo del formulario, mismo que el de la página */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+}
+
+.registro-form h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.registro-form .form-group {
+    margin-bottom: 15px;
+}
+
+.registro-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.registro-form input, .registro-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.registro-form .btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.registro-form button, .registro-form .btn-cancel {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 48%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+.registro-form button {
+    background-color: #685642; /* Color del botón Registrar */
+}
+
+.registro-form button:hover {
+    background-color: #4f4336;
+}
+
+.registro-form .btn-cancel {
+    background-color: #a0a0a0; /* Color del botón Cancelar */
+}
+
+.registro-form .btn-cancel:hover {
+    background-color: #808080;
+}
+
+.footer-section {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Asegurar que los elementos no se salgan del contenedor */
+}
+
+.footer-section h2 {
+    margin-right: 10px;
+}
+
+.footer-section img {
+    height: 30px;
+    margin-right: 5px;
+    flex-shrink: 0; /* Evitar que los iconos se encojan */
+}

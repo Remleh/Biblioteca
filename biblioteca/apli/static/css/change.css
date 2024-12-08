@@ -1,0 +1,167 @@
+/* styles_change.css */
+
+/* Estilos generales para la página de cambio de contraseña */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #F4F0CB; /* Color de fondo de la página */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden; /* Evitar barras de desplazamiento horizontales */
+}
+
+header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #B7C68B; /* Color del encabezado */
+    color: #000;
+    padding: 1rem;
+}
+
+.header-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header-center h1 {
+    margin: 0;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F0CB; /* Color de fondo del main */
+    overflow: hidden; /* Evitar barras de desplazamiento en el main */
+}
+
+.cambio-form {
+    background: #F4F0CB; /* Color de fondo del formulario */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+}
+
+.cambio-form h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.cambio-form .form-group {
+    margin-bottom: 15px;
+}
+
+.cambio-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.cambio-form input {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.cambio-form .btn-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cambio-form button, .cambio-form .btn-cancel {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 48%;
+    box-sizing: border-box;
+    text-align: center;
+    text-decoration: none;
+}
+
+.cambio-form button {
+    background-color: #685642; /* Color del botón Cambiar Contraseña */
+}
+
+.cambio-form button:hover {
+    background-color: #4f4336;
+}
+
+.cambio-form .btn-cancel {
+    background-color: #808080; /* Color del botón Cancelar */
+}
+
+.cambio-form .btn-cancel:hover {
+    background-color: #606060;
+}
+
+/* Estilos para los mensajes */
+ul.messages {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul.messages li {
+    padding: 10px;
+    border: 1px solid #d33;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+ul.messages li.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+ul.messages li.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    justify-content: space-between; /* Asegurar que los elementos del pie de página estén bien distribuidos */
+    align-items: center;
+    background-color: #B7C68B; /* Color del pie de página */
+    color: #000;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.footer-section {
+    display: flex;
+    justify-content: space-around; /* Distribuir elementos en el pie de página */
+    align-items: center;
+}
+
+.footer-section img {
+    height: 30px;
+    margin-right: 5px;
+    flex-shrink: 0; /* Evitar que los iconos se encojan */
+}
+
+.logo-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libros - Biblioteca</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/books.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="{% url 'perfil' %}">
+                <img src="{% static 'images/icons/hombre.png' %}" alt="Perfil">
+            </a>
+            <a href="{% url 'historial' %}">
+                <img src="{% static 'images/icons/carrito-de-compras.png' %}" alt="Historial de Préstamos">
+            </a>
+            <a href="#" id="logout-icon">
+                <img src="{% static 'images/icons/cerrar-sesion.png' %}" alt="Cerrar sesión">
+            </a>
+        </div>
+        <div class="header-center">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                <h1>Libros</h1>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="side-section">
+            <!-- Botones de carreras -->
+            {% for carrera in carreras %}
+                <button onclick="location.href='{% url 'books_by_carrera' carrera.id %}'">{{ carrera.descripcion }}</button>
+            {% endfor %}
+        </section>
+        <section class="main-section">
+            <div class="book-details-box">
+                {% if libros %}
+                    <ul class="book-list">
+                        {% for libro in libros %}
+                            <li class="book-item">
+                                <h2>{{ libro.titulo }}</h2>
+                                <p>{{ libro.descripcion }}</p>
+                                <p><strong>Autor:</strong> {{ libro.autor.nombre }}</p>
+                                <p><strong>Editorial:</strong> {{ libro.editorial.nombre }}</p>
+                                <p><strong>Categoría:</strong> {{ libro.categoria.nombre }}</p>
+                                <p><strong>Estado:</strong> {{ libro.estado.nombre }}</p>
+                                <div class="btn-container">
+                                    <button onclick="location.href='{% url 'solicitar' libro.id %}'" class="btn-loan">Solicitar</button>
+                                </div>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                {% else %}
+                    <p>No hay libros disponibles para esta carrera.</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-section logo-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/libros.png' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="footer-section"></div>
+    </footer>
+    <script>
+        document.getElementById('logout-icon').addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Estás a punto de cerrar sesión!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{% url 'logout' %}";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

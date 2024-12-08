@@ -3,18 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca</title>
+    <title>Inicio - Biblioteca</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}?{% now 'U' %}">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
         <div class="header-left">
-            <img src="{% static 'images/icon1.png' %}" alt="Menu">
-            <img src="{% static 'images/icon2.png' %}" alt="Perfil">
-            <img src="{% static 'images/icon3.png' %}" alt="Prestamos">
-            <img src="{% static 'images/icon4.png' %}" alt="Cerrar sesion">
-            <img src="{% static 'images/icon5.png' %}" alt="Cerrar">
+            <a href="{% url 'perfil' %}">
+                <img src="{% static 'images/icons/hombre.png' %}" alt="Perfil">
+            </a>
+            <a href="{% url 'historial' %}">
+                <img src="{% static 'images/icons/carrito-de-compras.png' %}" alt="Historial de Préstamos">
+            </a>
+            <a href="#" id="logout-icon">
+                <img src="{% static 'images/icons/cerrar-sesion.png' %}" alt="Cerrar sesión">
+            </a>
         </div>
         <div class="header-center">
             <h1>Inicio</h1>
@@ -23,17 +28,13 @@
     <main>
         <section class="side-section">
             <!-- Contenido de los botones -->
-            <button>Ingeniería en Sistemas Computacionales</button>
-            <button>Ingeniería en Animación Digital</button>
-            <button>Licenciatura en Gastronomía</button>
-            <button>Licenciatura en Administración</button>
-            <button>Ingeniería Química</button>
-            <button>Ingeniería en Mecatrónica</button>
-            <button>Ingeniería Industrial</button>
+            {% for carrera in carreras %}
+                <button onclick="location.href='{% url 'books_by_carrera' carrera.id %}'">{{ carrera.descripcion }}</button>
+            {% endfor %}
         </section>
         <section class="main-section">
-            <div class="centered-text">
-                <p>
+            <div class="welcome-message">
+                <p style="white-space: pre-wrap;">
                     No hay entretenimiento tan 
                     barato como la lectura, ni 
                     placer tan duradero.
@@ -44,19 +45,41 @@
     </main>
     <footer>
         <div class="footer-section">
-            <h2></h2>
-            <img src="{% static 'images/footer-icon1.png' %}" alt="Facebook">
-            <img src="{% static 'images/footer-icon2.png' %}" alt="Twitter">
-            <img src="{% static 'images/footer-icon3.png' %}" alt="Instagram">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
         </div>
-        <div class="footer-section">
-            <h2></h2>
-            <img src="{% static 'images/footer-icon4.png' %}" alt="Logo">
+        <div class="footer-section logo-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/libros.png' %}" alt="Logo">
+            </a>
         </div>
-        <div class="footer-section">
-            <h2></h2>
-            <img src="{% static 'images/footer-icon5.png' %}" alt="ChatBot">
-        </div>
+        <div class="footer-section"></div>
     </footer>
+    <script>
+        document.getElementById('logout-icon').addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Estás a punto de cerrar sesión!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{% url 'logout' %}";
+                }
+            });
+        });
+    </script>
 </body>
 </html>

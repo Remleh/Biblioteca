@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial de Préstamos - Biblioteca</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/historial.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <header>
+        <div class="header-left">
+            <a href="{% url 'perfil' %}">
+                <img src="{% static 'images/icons/hombre.png' %}" alt="Perfil">
+            </a>
+            <a href="{% url 'historial' %}">
+                <img src="{% static 'images/icons/carrito-de-compras.png' %}" alt="Historial de Préstamos">
+            </a>
+            <a href="#" id="logout-icon">
+                <img src="{% static 'images/icons/cerrar-sesion.png' %}" alt="Cerrar sesión">
+            </a>
+        </div>
+        <div class="header-center">
+            <a href="{% url 'home' %}" style="text-decoration: none; color: inherit;">
+                <h1>Historial de Préstamos</h1>
+            </a>
+        </div>
+    </header>
+    <main>
+        <section class="history-section">
+            {% if prestamos %}
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Libro</th>
+                            <th>Fecha de Préstamo</th>
+                            <th>Fecha de Devolución</th>
+                            <th>Estado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for prestamo in prestamos %}
+                            <tr>
+                                <td>{{ prestamo.libro.titulo }}</td>
+                                <td>{{ prestamo.fecha_prestamo }}</td>
+                                <td>{{ prestamo.fecha_devolucion }}</td>
+                                <td>{{ prestamo.estado }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            {% else %}
+                <p>No hay préstamos en tu historial.</p>
+            {% endif %}
+        </section>
+        <div class="btn-container">
+            <button onclick="location.href='{% url 'home' %}'" class="btn-back">Volver</button>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-section">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/facebook.png' %}" alt="Facebook">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/whatsapp.png' %}" alt="Whatsapp">
+            </a>
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/instagram.png' %}" alt="Instagram">
+            </a>
+        </div>
+        <div class="footer-section logo-center">
+            <a href="{% url 'login' %}">
+                <img src="{% static 'images/icons/libros.png' %}" alt="Logo">
+            </a>
+        </div>
+        <div class="footer-section"></div>
+    </footer>
+    <script>
+        document.getElementById('logout-icon').addEventListener('click', function(event) {
+            event.preventDefault();
+            Swal.fire({
+                title: '¿Estás seguro?',
+                text: "¡Estás a punto de cerrar sesión!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Sí, cerrar sesión',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = "{% url 'logout' %}";
+                }
+            });
+        });
+    </script>
+</body>
+</html>

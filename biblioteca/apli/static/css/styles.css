@@ -12,6 +12,7 @@ body {
 }
 
 header, footer {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,7 +43,9 @@ header, footer {
 
 main {
     flex: 1;
+    width: 100%;
     display: flex;
+    flex-direction: row; /* Asegura que las secciones estén alineadas horizontalmente */
 }
 
 .side-section {
@@ -58,7 +61,7 @@ main {
     width: 100%;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #f4f0cb;
+    background-color: #B7C68B;
     border: 1px solid #000;
     border-radius: 5px;
     cursor: pointer;
@@ -66,7 +69,7 @@ main {
 }
 
 .side-section button:hover {
-    background-color: #eaeaea;
+    background-color: #A4B379;
 }
 
 .main-section {
@@ -75,10 +78,22 @@ main {
     justify-content: center;
     align-items: center;
     background-color: #f4f0cb;
+    padding: 1rem;
 }
 
-.centered-text {
+.welcome-message {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 2rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     text-align: center;
+    max-width: 600px;
+    width: 100%;
+}
+
+.welcome-message h2 {
+    margin-top: 0;
 }
 
 .footer-section {
@@ -93,4 +108,91 @@ main {
 .footer-section img {
     height: 30px;
     margin-right: 5px;
+}
+
+/* Estilos para la página de perfil */
+.user-info {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info h2 {
+    margin-top: 0;
+}
+
+/* Mantener el estilo del body para la página específica */
+body.profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilos para el formulario de registro */
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    background-color: #f4f4f4;
+    height: 100%;
+}
+
+.registro-form {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
+}
+
+.registro-form h2 {
+    margin-top: 0;
+    text-align: center;
+}
+
+.registro-form .form-group {
+    margin-bottom: 15px;
+}
+
+.registro-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.registro-form input, .registro-form select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.registro-form button {
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 10px;
+}
+
+.registro-form button:hover {
+    background-color: #0056b3;
+}
+
+.header-left img, .footer-section img {
+    height: 30px;
+    margin-right: 10px;
 }
